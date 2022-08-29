@@ -5,8 +5,6 @@ import com.example.concessioninventory.snack.SnackCategory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SnackTest {
@@ -14,7 +12,7 @@ public class SnackTest {
 
     @BeforeEach
     public void setUp() {
-        testSnack = new Snack("Peanut M&Ms", 1.99, SnackCategory.Sweet, List.of("peanuts"), 15);
+        testSnack = new Snack("Peanut M&Ms", 1.99, SnackCategory.Sweet, 15);
     }
 
     @Test
@@ -22,7 +20,6 @@ public class SnackTest {
         assertEquals("Peanut M&Ms", testSnack.getName());
         assertEquals(1.99, testSnack.getPrice());
         assertEquals(SnackCategory.Sweet, testSnack.getCategory());
-        assertEquals(List.of("peanuts"), testSnack.getAllergens());
         assertEquals(15, testSnack.getStock());
     }
 
@@ -69,21 +66,6 @@ public class SnackTest {
         testSnack.setCategory(SnackCategory.Salty);
 
         assertEquals(SnackCategory.Salty, testSnack.getCategory());
-    }
-
-    @Test
-    public void testSetAllergensOnce() {
-        testSnack.setAllergens(List.of("peanuts, shellfish"));
-
-        assertEquals(List.of("peanuts, shellfish"), testSnack.getAllergens());
-    }
-
-    @Test
-    public void testSetAllergensMultipleTimes() {
-        testSnack.setAllergens(List.of("peanuts, strawberries"));
-        testSnack.setAllergens(List.of());
-
-        assertEquals(List.of(), testSnack.getAllergens());
     }
 
     @Test

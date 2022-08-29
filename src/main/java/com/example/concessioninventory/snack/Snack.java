@@ -1,22 +1,36 @@
 package com.example.concessioninventory.snack;
 
-import java.util.List;
+import javax.persistence.*;
 
 // Represents a snack item in the concession inventory
+@Entity
+@Table
 public class Snack {
+    @Id
+    @SequenceGenerator(
+            name = "snack_sequence",
+            sequenceName = "snack_sequence",
+            allocationSize = 1
+    )
+
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "student_sequence"
+    )
 
     private String name;
     private double price;
     private SnackCategory category;
-    private List<String> allergens;
     private int stock;
 
+    public Snack() {
+    }
+
     //EFFECTS: creates a snack with the given name, price, category, allergens, and stock
-    public Snack(String name, double price, SnackCategory category, List<String> allergens, int stock) {
+    public Snack(String name, double price, SnackCategory category, int stock) {
         this.name = name;
         this.price = price;
         this.category = category;
-        this.allergens = allergens;
         this.stock = stock;
     }
 
@@ -43,14 +57,6 @@ public class Snack {
 
     public void setCategory(SnackCategory category) {
         this.category = category;
-    }
-
-    public List<String> getAllergens() {
-        return allergens;
-    }
-
-    public void setAllergens(List<String> allergens) {
-        this.allergens = allergens;
     }
 
     public int getStock() {
