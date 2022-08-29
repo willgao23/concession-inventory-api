@@ -21,16 +21,23 @@ public class Snack {
     private String name;
     private double price;
     private SnackCategory category;
+    private boolean hasNuts;
+    private boolean hasGluten;
+    private boolean hasLactose;
     private int stock;
 
     public Snack() {
     }
 
     //EFFECTS: creates a snack with the given name, price, category, allergens, and stock
-    public Snack(String name, double price, SnackCategory category, int stock) {
+    public Snack(String name, double price, SnackCategory category, boolean hasNuts,
+                 boolean hasGluten, boolean hasLactose, int stock) {
         this.name = name;
         this.price = price;
         this.category = category;
+        this.hasNuts = hasNuts;
+        this.hasGluten = hasGluten;
+        this.hasLactose = hasLactose;
         this.stock = stock;
     }
 
@@ -65,5 +72,29 @@ public class Snack {
 
     public void setStock(int stock) {
         this.stock = stock;
+    }
+
+    public boolean isHasNuts() {
+        return hasNuts;
+    }
+
+    public void setHasNuts(boolean hasNuts) {
+        this.hasNuts = hasNuts;
+    }
+
+    public boolean isHasGluten() {
+        return hasGluten;
+    }
+
+    public void setHasGluten(boolean hasGluten) {
+        this.hasGluten = hasGluten;
+    }
+
+    public boolean isHasLactose() {
+        return hasLactose;
+    }
+
+    public void setHasLactose(boolean hasLactose) {
+        this.hasLactose = hasLactose;
     }
 }

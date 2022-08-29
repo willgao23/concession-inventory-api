@@ -8,6 +8,7 @@ import java.util.List;
 public class SnackService {
 
     public List<Snack> getSnacks() {
-        return List.of(new Snack("Peanut M&Ms", 1.99, SnackCategory.Sweet, 15));
+        return List.of(new Snack("Peanut M&Ms", 1.99, SnackCategory.Sweet, true,
+                false, false, 15));
     }
 }

@@ -5,14 +5,15 @@ import com.example.concessioninventory.snack.SnackCategory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class SnackTest {
     private Snack testSnack;
 
     @BeforeEach
     public void setUp() {
-        testSnack = new Snack("Peanut M&Ms", 1.99, SnackCategory.Sweet, 15);
+        testSnack = new Snack("Peanut M&Ms", 1.99, SnackCategory.Sweet, true,
+                false, false, 15);
     }
 
     @Test
@@ -20,6 +21,9 @@ public class SnackTest {
         assertEquals("Peanut M&Ms", testSnack.getName());
         assertEquals(1.99, testSnack.getPrice());
         assertEquals(SnackCategory.Sweet, testSnack.getCategory());
+        assertTrue(testSnack.isHasNuts());
+        assertFalse(testSnack.isHasGluten());
+        assertFalse(testSnack.isHasLactose());
         assertEquals(15, testSnack.getStock());
     }
 
@@ -81,5 +85,50 @@ public class SnackTest {
         testSnack.setStock(24);
 
         assertEquals(24, testSnack.getStock());
+    }
+
+    @Test
+    public void testSetHasNutsOnce() {
+        testSnack.setHasNuts(false);
+
+        assertFalse(testSnack.isHasNuts());
+    }
+
+    @Test
+    public void testSetHasNutsMultipleTimes() {
+        testSnack.setHasNuts(false);
+        testSnack.setHasNuts(true);
+
+        assertTrue(testSnack.isHasNuts());
+    }
+
+    @Test
+    public void testSetHasGlutenOnce() {
+        testSnack.setHasGluten(true);
+
+        assertTrue(testSnack.isHasGluten());
+    }
+
+    @Test
+    public void testSetHasGlutenMultipleTimes() {
+        testSnack.setHasGluten(true);
+        testSnack.setHasGluten(false);
+
+        assertFalse(testSnack.isHasGluten());
+    }
+
+    @Test
+    public void testSetHasLactoseOnce() {
+        testSnack.setHasLactose(true);
+
+        assertTrue(testSnack.isHasLactose());
+    }
+
+    @Test
+    public void testSetHasLactoseMultipleTimes() {
+        testSnack.setHasLactose(true);
+        testSnack.setHasLactose(false);
+
+        assertFalse(testSnack.isHasLactose());
     }
 }
