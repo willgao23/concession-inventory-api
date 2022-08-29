@@ -15,7 +15,7 @@ public class Snack {
 
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "student_sequence"
+            generator = "snack_sequence"
     )
 
     private String name;
