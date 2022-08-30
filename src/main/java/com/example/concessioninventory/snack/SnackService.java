@@ -1,6 +1,7 @@
 package com.example.concessioninventory.snack;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -20,8 +21,26 @@ public class SnackService {
     }
 
     //EFFECTS: returns a list of all snacks inside the repository
-    public List<Snack> getSnacks() {
-        return snackRepository.findAll();
+    public List<Snack> getSnacks(String sort) {
+        if (sort == null) {
+            return snackRepository.findAll();
+        }
+
+        if (sort.equals("nameAsc")) {
+            return snackRepository.findAll(Sort.by("name").ascending());
+        } else if (sort.equals("nameDesc")) {
+            return snackRepository.findAll(Sort.by("name").descending());
+        } else if (sort.equals("priceAsc")) {
+            return snackRepository.findAll(Sort.by("price").ascending());
+        } else if (sort.equals("priceDesc")) {
+            return snackRepository.findAll(Sort.by("price").descending());
+        } else if (sort.equals("stockAsc")) {
+            return snackRepository.findAll(Sort.by("stock").ascending());
+        } else if (sort.equals("stockDesc")) {
+            return snackRepository.findAll(Sort.by("stock").descending());
+        } else {
+            return snackRepository.findAll();
+        }
     }
 
     //EFFECTS: if no snack in database has the same name as given snack, add given snack to database;

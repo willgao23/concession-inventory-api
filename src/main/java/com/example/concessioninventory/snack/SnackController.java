@@ -20,8 +20,8 @@ public class SnackController {
 
     //EFFECTS: returns a list of snacks from the database
     @GetMapping
-    public List<Snack> getSnacks() {
-        return snackService.getSnacks();
+    public List<Snack> getSnacks(@RequestParam(required = false) String sort) {
+        return snackService.getSnacks(sort);
     }
 
     //EFFECTS: adds a given snack into the database
@@ -39,8 +39,8 @@ public class SnackController {
     //EFFECTS: edits a given snack's price or stock
     @PutMapping (path = "{snackId}")
     public void editSnack(@PathVariable("snackId") Long snackId,
-                          @RequestParam(required = false) Double newPrice,
-                          @RequestParam(required = false) Integer newStock) {
-        snackService.editSnack(snackId, newPrice, newStock);
+                          @RequestParam(required = false) Double price,
+                          @RequestParam(required = false) Integer stock) {
+        snackService.editSnack(snackId, price, stock);
     }
 }
