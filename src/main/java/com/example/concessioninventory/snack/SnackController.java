@@ -1,9 +1,7 @@
 package com.example.concessioninventory.snack;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,5 +22,11 @@ public class SnackController {
     @GetMapping
     public List<Snack> getSnacks() {
         return snackService.getSnacks();
+    }
+
+    //EFFECTS: adds a given snack into the database
+    @PostMapping
+    public void addNewSnack(@RequestBody Snack snack) {
+        snackService.addNewSnack(snack);
     }
 }
