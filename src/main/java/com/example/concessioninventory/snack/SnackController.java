@@ -20,8 +20,9 @@ public class SnackController {
 
     //EFFECTS: returns a list of snacks from the database
     @GetMapping
-    public List<Snack> getSnacks(@RequestParam(required = false) String sort) {
-        return snackService.getSnacks(sort);
+    public List<Snack> getSnacks(@RequestParam(required = false) String sort,
+                                 @RequestParam(required = false) String filter) {
+        return snackService.getSnacks(sort, filter);
     }
 
     //EFFECTS: adds a given snack into the database
