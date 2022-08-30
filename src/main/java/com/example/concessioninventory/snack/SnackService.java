@@ -39,11 +39,11 @@ public class SnackService {
 
     //EFFECTS: if there is a snack in the database with the given name, delete it;
     //else, throw IllegalStateException
-    public void deleteSnack(String snackName) {
-        Optional<Snack> snackOptional = snackRepository.findSnackByName(snackName);
+    public void deleteSnack(Long snackId) {
+        Optional<Snack> snackOptional = snackRepository.findById(snackId);
 
         if (snackOptional.isEmpty()) {
-            throw new IllegalStateException("There is no snack named " + snackName + " in your concession stand!");
+            throw new IllegalStateException("There is no snack with ID  " + snackId + " in your concession stand!");
         }
 
         snackRepository.delete(snackOptional.get());

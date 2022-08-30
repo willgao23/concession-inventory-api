@@ -31,9 +31,9 @@ public class SnackController {
     }
 
     //EFFECTS: deletes a given snack from the database
-    @DeleteMapping (path = "{snackName}")
-    public void deleteSnack(@PathVariable("snackName") String snackName) {
-        snackService.deleteSnack(snackName);
+    @DeleteMapping (path = "{snackId}")
+    public void deleteSnack(@PathVariable("snackId") Long snackId) {
+        snackService.deleteSnack(snackId);
     }
 
     //EFFECTS: edits a given snack's price or stock
