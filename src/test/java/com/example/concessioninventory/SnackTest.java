@@ -131,4 +131,19 @@ public class SnackTest {
 
         assertFalse(testSnack.isHasLactose());
     }
+
+    @Test
+    public void testSetIdOnce() {
+        testSnack.setId(1L);
+
+        assertEquals(1L, testSnack.getId());
+    }
+
+    @Test
+    public void testSetIdMultipleTimes() {
+        testSnack.setId(2L);
+        testSnack.setId(3L);
+
+        assertEquals(3L, testSnack.getId());
+    }
 }
