@@ -29,4 +29,10 @@ public class SnackController {
     public void addNewSnack(@RequestBody Snack snack) {
         snackService.addNewSnack(snack);
     }
+
+    //EFFECTS: deletes a given snack from the database
+    @DeleteMapping (path = "{snackName}")
+    public void deleteSnack(@PathVariable("snackName") String snackName) {
+        snackService.deleteSnack(snackName);
+    }
 }

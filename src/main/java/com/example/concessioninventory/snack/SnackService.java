@@ -35,4 +35,16 @@ public class SnackService {
 
         snackRepository.save(snack);
     }
+
+    //EFFECTS: if there is a snack in the database with the given name, delete it;
+    //else, throw IllegalStateException
+    public void deleteSnack(String snackName) {
+        Optional<Snack> snackOptional = snackRepository.findSnackByName(snackName);
+
+        if (snackOptional.isEmpty()) {
+            throw new IllegalStateException("There is no snack named " + snackName + " in your concession stand!");
+        }
+
+        snackRepository.delete(snackOptional.get());
+    }
 }
