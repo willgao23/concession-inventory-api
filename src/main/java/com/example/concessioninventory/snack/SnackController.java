@@ -35,4 +35,12 @@ public class SnackController {
     public void deleteSnack(@PathVariable("snackName") String snackName) {
         snackService.deleteSnack(snackName);
     }
+
+    //EFFECTS: edits a given snack's price or stock
+    @PutMapping (path = "{snackId}")
+    public void editSnack(@PathVariable("snackId") Long snackId,
+                          @RequestParam(required = false) Double newPrice,
+                          @RequestParam(required = false) Integer newStock) {
+        snackService.editSnack(snackId, newPrice, newStock);
+    }
 }

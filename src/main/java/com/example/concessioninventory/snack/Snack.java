@@ -19,12 +19,12 @@ public class Snack {
     @Id
     private Long id;
     private String name;
-    private double price;
+    private Double price;
     private SnackCategory category;
     private boolean hasNuts;
     private boolean hasGluten;
     private boolean hasLactose;
-    private int stock;
+    private Integer stock;
 
     public Snack() {
     }
@@ -58,11 +58,11 @@ public class Snack {
         this.name = name;
     }
 
-    public double getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
@@ -74,11 +74,11 @@ public class Snack {
         this.category = category;
     }
 
-    public int getStock() {
+    public Integer getStock() {
         return stock;
     }
 
-    public void setStock(int stock) {
+    public void setStock(Integer stock) {
         this.stock = stock;
     }
 
