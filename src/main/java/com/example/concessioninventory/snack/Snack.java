@@ -29,6 +29,19 @@ public class Snack {
     public Snack() {
     }
 
+    //EFFECTS: creates a snack with the given id, name, price, category, allergens, and stock
+    public Snack(Long id, String name, double price, SnackCategory category, boolean hasNuts,
+                 boolean hasGluten, boolean hasLactose, int stock) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.category = category;
+        this.hasNuts = hasNuts;
+        this.hasGluten = hasGluten;
+        this.hasLactose = hasLactose;
+        this.stock = stock;
+    }
+
     //EFFECTS: creates a snack with the given name, price, category, allergens, and stock
     public Snack(String name, double price, SnackCategory category, boolean hasNuts,
                  boolean hasGluten, boolean hasLactose, int stock) {
